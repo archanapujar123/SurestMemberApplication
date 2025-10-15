@@ -36,35 +36,32 @@ public class MemberController {
 
     @GetMapping
     public ResponseEntity<Map<String, Object>> getMembers(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(required = false) String sort,
-            @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName) {
+            @RequestParam int page,
+            @RequestParam int size,
+            @RequestParam String sort,
+            @RequestParam String firstName,
+            @RequestParam String lastName
+    ) {
+        // Service returns Page<MemberResponseDTO>
+        Page<MemberResponseDTO> pageResult = memberService.getAllMembers(page, size, sort, firstName, lastName);
 
-        // Treat empty strings as null
-        firstName = (firstName != null && !firstName.isBlank()) ? firstName : null;
-        lastName = (lastName != null && !lastName.isBlank()) ? lastName : null;
-
-        Page<MemberResponseDTO> membersPage = memberService.getAllMembers(page, size, sort, firstName, lastName);
-
+        // Convert Page into Map<String, Object>
         Map<String, Object> response = new HashMap<>();
-        response.put("content", membersPage.getContent());
-        response.put("currentPage", membersPage.getNumber());
-        response.put("totalItems", membersPage.getTotalElements());
-        response.put("totalPages", membersPage.getTotalPages());
+        response.put("content", pageResult.getContent());
+        response.put("totalElements", pageResult.getTotalElements());
+        response.put("totalPages", pageResult.getTotalPages());
+        response.put("pageNumber", pageResult.getNumber());
+        response.put("pageSize", pageResult.getSize());
 
         return ResponseEntity.ok(response);
     }
-
-
     @GetMapping("/{id}")
     public MemberResponseDTO getMemberById(@PathVariable UUID id) {
         return memberService.getMemberById(id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String, String>> deleteMember(@PathVariable UUID id) {
+    public ResponseEntity<Map<String, String>> deleteMemberById(@PathVariable UUID id) {
         memberService.deleteMember(id);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Member deleted successfully");

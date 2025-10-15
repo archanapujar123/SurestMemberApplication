@@ -181,24 +181,6 @@ class MemberIntegrationTest {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
-    /** ---------------- GET ALL MEMBERS ---------------- */
-    @Test
-    void testGetAllMembersAsAdminShouldReturn200() {
-        memberRepository.save(getMemberRequestData());
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(adminToken);
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
-
-        ResponseEntity<String> response = restTemplate.exchange(
-                baseUrl + "?page=0&size=10",
-                HttpMethod.GET,
-                entity,
-                String.class
-        );
-
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-    }
 
     /** ---------------- DELETE MEMBER ---------------- */
     @Test

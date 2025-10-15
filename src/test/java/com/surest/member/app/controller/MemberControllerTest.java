@@ -1,162 +1,140 @@
 package com.surest.member.app.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.surest.member.app.dto.MemberRequestDTO;
 import com.surest.member.app.dto.MemberResponseDTO;
 import com.surest.member.app.service.MemberService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
-import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@ExtendWith(MockitoExtension.class)
-public class MemberControllerTest {
+class MemberControllerDirectCallTest {
 
-
-    private MockMvc mockMvc;
-
-    @Mock
     private MemberService memberService;
-
-    @InjectMocks
     private MemberController memberController;
 
-    private ObjectMapper objectMapper;
-
-    public static final String BASE_URL = "/api/v1/members";
-
     @BeforeEach
-    void setup() {
-        objectMapper = new ObjectMapper()
-                .registerModule(new JavaTimeModule())  // support Java 8 date/time
-                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-
-        mockMvc = MockMvcBuilders.standaloneSetup(memberController)
-                .setMessageConverters(new org.springframework.http.converter.json.MappingJackson2HttpMessageConverter(objectMapper))
-                .build();
+    void setUp() {
+        memberService = mock(MemberService.class);
+        memberController = new MemberController(memberService);
     }
 
+    // ---------------- Create Member ----------------
     @Test
-    void testGetAllMembers() throws Exception {
-        Page<MemberResponseDTO> mockPage = getMembersDetails();
+    void createMemberSuccess() {
+        MemberRequestDTO memberRequestDTO = memberRequestData();
+        MemberResponseDTO memberResponseDTO = memberResponseData();
+        when(memberService.createMember(memberRequestDTO)).thenReturn(memberResponseDTO);
 
-        lenient().when(memberService.getAllMembers(anyInt(), anyInt(), any(), any(), any()))
-                .thenReturn(mockPage);
+        ResponseEntity<MemberResponseDTO> response = memberController.createMember(memberRequestDTO);
 
-        mockMvc.perform(get(BASE_URL)
-                        .param("page", "0")
-                        .param("size", "10")
-                        .param("sort", "")
-                        .param("firstName", "")
-                        .param("lastName", ""))
-                .andDo(print()) // ✅ debug output to console
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.content", hasSize(2)))
-                .andExpect(jsonPath("$.content[0].firstName").value("archana"));
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+        assertThat(response.getBody()).isEqualTo(memberResponseDTO);
+        assertThat(response.getBody().getEmail()).isEqualTo("archanapujar@gmail.com");
 
-        verify(memberService, times(1))
-                .getAllMembers(anyInt(), anyInt(), any(), any(), any());
+        verify(memberService, times(1)).createMember(memberRequestDTO);
     }
 
-
+    // ---------------- Get Member by ID ----------------
     @Test
-    void testCreateMemberSuccess() throws Exception {
-        // Arrange
-        MemberRequestDTO requestDTO = memberRequestData();
-        MemberResponseDTO responseDTO = memberResponseData();
-        when(memberService.createMember(any(MemberRequestDTO.class))).thenReturn(responseDTO);
-
-        // Act & Assert
-        mockMvc.perform(post(BASE_URL)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(requestDTO)))
-                .andExpect(status().isCreated()) // Expect 201
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.firstName").value("Archana"))
-                .andExpect(jsonPath("$.email").value("archanapujar@gmail.com"));
-        verify(memberService, times(1)).createMember(any(MemberRequestDTO.class));
-    }
-
-    @Test
-    void testGetMemberByIdSuccess() throws Exception {
+    void getMemberByIdSuccess() {
         UUID memberId = UUID.randomUUID();
-        MemberResponseDTO member = new MemberResponseDTO(
-                memberId, "archana", "pujar", "archanapujar@gmail.com", LocalDate.parse("1995-06-07")
-        );
+        MemberResponseDTO memberResponseDTO = memberResponseData();
+        when(memberService.getMemberById(memberId)).thenReturn(memberResponseDTO);
 
-        when(memberService.getMemberById(memberId)).thenReturn(member);
+        MemberResponseDTO result = memberController.getMemberById(memberId);
 
-        mockMvc.perform(get("/api/v1/members/{id}", memberId)
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id").value(memberId.toString()))
-                .andExpect(jsonPath("$.firstName").value("archana"))
-                .andExpect(jsonPath("$.lastName").value("pujar"));
+        assertThat(result).isEqualTo(memberResponseDTO);
+        assertThat(result.getEmail()).isEqualTo("archanapujar@gmail.com");
+        verify(memberService, times(1)).getMemberById(memberId);
     }
 
+    // ---------------- Get All Members ----------------
     @Test
-    void testDeleteMemberSuccess() throws Exception {
+    void testGetAllMembersSuccess() {
+        List<MemberResponseDTO> members = new ArrayList<>();
+        members.add(new MemberResponseDTO(UUID.randomUUID(), "Archana", "Pujar", "archanapujar@gmail.com", LocalDate.parse("1995-06-07")));
+        members.add(new MemberResponseDTO(UUID.randomUUID(), "Ridha", "Pujar", "ridha@gmail.com", LocalDate.parse("1995-06-07")));
+
+        Map<String, Object> mockResponse = new HashMap<>();
+        Page<MemberResponseDTO> page = new PageImpl<>(members);
+
+        mockResponse.put("content", members);
+        mockResponse.put("totalElements", members.size());
+        mockResponse.put("totalPages", 1);
+        mockResponse.put("pageNumber", 0);
+        mockResponse.put("pageSize", 10);
+
+        // Mock service behavior
+        when(memberService.getAllMembers(0, 10, "", "", "")).thenReturn(page);
+
+        // Call controller directly
+        ResponseEntity<Map<String, Object>> result = memberController.getMembers(0, 10, "", "", "");
+
+        // Assertions
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(result.getBody()).isNotNull();
+        assertThat(result.getBody().get("content")).isInstanceOf(List.class);
+
+        @SuppressWarnings("unchecked")
+        List<MemberResponseDTO> content = (List<MemberResponseDTO>) result.getBody().get("content");
+        assertThat(content).hasSize(2);
+        assertThat(content.get(0).getFirstName()).isEqualTo("Archana");
+        assertThat(content.get(1).getEmail()).isEqualTo("ridha@gmail.com");
+
+        assertThat(result.getBody())
+                .containsEntry("totalElements", 2L);
+        assertThat(result.getBody())
+                .containsEntry("pageNumber", 0);
+
+
+        // Verify service was called once
+        verify(memberService, times(1)).getAllMembers(0, 10, "", "", "");
+    }
+
+    // ---------------- Update Member ----------------
+    @Test
+    void testUpdateMemberSuccess() {
+        UUID memberId = UUID.randomUUID();
+        MemberRequestDTO memberRequestDTO = memberRequestData();
+        MemberResponseDTO memberResponseDTO = memberResponseData();
+
+        when(memberService.updateMember(eq(memberId), any(MemberRequestDTO.class))).thenReturn(memberResponseDTO);
+
+        ResponseEntity<MemberResponseDTO> response = memberController.updateMember(memberId, memberRequestDTO);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(memberResponseDTO);
+        verify(memberService, times(1)).updateMember(memberId, memberRequestDTO);
+    }
+
+    // ---------------- Delete Member ----------------
+    @Test
+    void deleteMemberByIdSuccess() {
         UUID memberId = UUID.randomUUID();
 
-        // No need to return anything from void method
         doNothing().when(memberService).deleteMember(memberId);
 
-        mockMvc.perform(delete("/api/v1/members/{id}", memberId)
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message").value("Member deleted successfully"));
+        ResponseEntity<Map<String, String>> response = memberController.deleteMemberById(memberId);
 
-        // Verify the service method was called
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody())
+                .containsEntry("message", "Member deleted successfully");
         verify(memberService, times(1)).deleteMember(memberId);
     }
 
-    @Test
-    void testUpdateMemberSuccess() throws Exception {
-        UUID memberId = UUID.fromString("a1d8234f-8235-4548-8fe3-8028c9f90c69");
-        MemberRequestDTO request = memberRequestData();
-        MemberResponseDTO updatedMember = memberResponseData();
 
-        when(memberService.updateMember(eq(memberId), any(MemberRequestDTO.class)))
-                .thenReturn(updatedMember);
 
-        mockMvc.perform(put("/api/v1/members/{id}", memberId)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.firstName").value("Archana"))
-                .andExpect(jsonPath("$.lastName").value("Pujar"))
-                .andExpect(jsonPath("$.email").value("archanapujar@gmail.com"))
-                .andExpect(jsonPath("$.dateOfBirth").value("1995-06-07"));
-
-        verify(memberService, times(1)).updateMember(eq(memberId), any(MemberRequestDTO.class));
-    }
-
-    public MemberRequestDTO memberRequestData() {
+public MemberRequestDTO memberRequestData() {
         return new MemberRequestDTO(
                 "Archana",
                 "Pujar",
@@ -173,11 +151,5 @@ public class MemberControllerTest {
                 LocalDate.parse("1995-06-07")        );
     }
 
-    private Page<MemberResponseDTO> getMembersDetails() {
-        List<MemberResponseDTO> members = new ArrayList<>();
-        members.add(new MemberResponseDTO(UUID.randomUUID(), "archana", "pujar", "archanapujar@gmail.com", LocalDate.parse("1995-06-07")));
-        members.add(new MemberResponseDTO(UUID.randomUUID(), "Ridha", "Pujar", "ridha@gmail.com", LocalDate.parse("1995-06-07")));
-        return new PageImpl<>(members);
-    }
 
 }
