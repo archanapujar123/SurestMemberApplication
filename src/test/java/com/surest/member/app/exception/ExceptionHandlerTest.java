@@ -4,6 +4,7 @@ import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.WriteListener;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -19,8 +20,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class ExceptionHandlerTest {
@@ -36,13 +36,21 @@ class ExceptionHandlerTest {
 
      private CustomAccessDeniedHandler handler;
 
+    private AutoCloseable closeable;
+
+
     @BeforeEach
      void setUp()  {
-        MockitoAnnotations.openMocks(this);
+        closeable = MockitoAnnotations.openMocks(this);
         exceptionHandler = new GlobalExceptionHandler();
          handler = new CustomAccessDeniedHandler();
 
      }
+
+    @AfterEach
+    void tearDown() throws Exception {
+        closeable.close();
+    }
 
     @Test
     void testHandleResourceNotFoundException() {
@@ -50,8 +58,8 @@ class ExceptionHandlerTest {
 
         ResponseEntity<Map<String, String>> responseEntity = exceptionHandler.handleResourceNotFound(ex);
 
-        assertEquals("Member not found", responseEntity.getBody().get("error"));
-    }
+        assertNotNull(responseEntity.getBody());
+        assertEquals("Member not found", responseEntity.getBody().get("error"));    }
 
 
     @Test
@@ -66,8 +74,8 @@ class ExceptionHandlerTest {
 
         ResponseEntity<Map<String, String>> responseEntity = exceptionHandler.handleValidationExceptions(ex);
 
-        assertEquals("must not be blank", responseEntity.getBody().get("username"));
-    }
+        assertNotNull(responseEntity.getBody());
+        assertEquals("must not be blank", responseEntity.getBody().get("username"));    }
 
     @Test
     void testHandleOtherExceptions() {
@@ -75,8 +83,9 @@ class ExceptionHandlerTest {
 
         ResponseEntity<Map<String, String>> responseEntity = exceptionHandler.handleOtherExceptions(ex);
 
-        assertEquals("An unexpected error occurred: Something went wrong", responseEntity.getBody().get("error"));
-    }
+        assertNotNull(responseEntity.getBody());
+        assertEquals("An unexpected error occurred: Something went wrong",
+                responseEntity.getBody().get("error"));    }
 
     @Test
     void testHandleShouldReturn403AndJsonResponse() throws IOException {
@@ -84,7 +93,7 @@ class ExceptionHandlerTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         ServletOutputStream servletOutputStream = new ServletOutputStream() {
             @Override
-            public void write(int b) throws IOException {
+            public void write(int b)  {
                 outputStream.write(b);
             }
 

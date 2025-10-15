@@ -64,6 +64,7 @@ class AuthControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(authController)
                 .setMessageConverters(new org.springframework.http.converter.json.MappingJackson2HttpMessageConverter(objectMapper))
                 .build();
+
     }
 
     // -------------------- LOGIN TESTS --------------------

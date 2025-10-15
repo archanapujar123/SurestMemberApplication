@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
+@SuppressWarnings("unused")
 public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleResourceNotFound(ResourceNotFoundException ex) {

@@ -5,6 +5,9 @@ import com.surest.member.app.dto.MemberResponseDTO;
 import com.surest.member.app.service.MemberService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.data.domain.Page;
@@ -17,10 +20,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-class MemberControllerDirectCallTest {
+@ExtendWith(MockitoExtension.class)
+class MemberControllerTest {
 
+    @Mock
     private MemberService memberService;
     private MemberController memberController;
+
 
     @BeforeEach
     void setUp() {
@@ -30,7 +36,7 @@ class MemberControllerDirectCallTest {
 
     // ---------------- Create Member ----------------
     @Test
-    void createMemberSuccess() {
+    void testCreateMemberSuccess() {
         MemberRequestDTO memberRequestDTO = memberRequestData();
         MemberResponseDTO memberResponseDTO = memberResponseData();
         when(memberService.createMember(memberRequestDTO)).thenReturn(memberResponseDTO);
@@ -39,14 +45,14 @@ class MemberControllerDirectCallTest {
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(response.getBody()).isEqualTo(memberResponseDTO);
-        assertThat(response.getBody().getEmail()).isEqualTo("archanapujar@gmail.com");
-
+        assertThat(response.getBody())
+                .hasFieldOrPropertyWithValue("email", "archanapujar@gmail.com");
         verify(memberService, times(1)).createMember(memberRequestDTO);
     }
 
     // ---------------- Get Member by ID ----------------
     @Test
-    void getMemberByIdSuccess() {
+    void testGetMemberByIdSuccess() {
         UUID memberId = UUID.randomUUID();
         MemberResponseDTO memberResponseDTO = memberResponseData();
         when(memberService.getMemberById(memberId)).thenReturn(memberResponseDTO);
@@ -84,6 +90,8 @@ class MemberControllerDirectCallTest {
         assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(result.getBody()).isNotNull();
         assertThat(result.getBody().get("content")).isInstanceOf(List.class);
+        assertThat(((List<?>) mockResponse.get("content"))).hasSize(2);
+
 
         @SuppressWarnings("unchecked")
         List<MemberResponseDTO> content = (List<MemberResponseDTO>) result.getBody().get("content");
@@ -119,7 +127,7 @@ class MemberControllerDirectCallTest {
 
     // ---------------- Delete Member ----------------
     @Test
-    void deleteMemberByIdSuccess() {
+    void testDeleteMemberByIdSuccess() {
         UUID memberId = UUID.randomUUID();
 
         doNothing().when(memberService).deleteMember(memberId);

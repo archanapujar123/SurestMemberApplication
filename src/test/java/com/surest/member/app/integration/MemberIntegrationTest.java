@@ -5,6 +5,7 @@ import com.surest.member.app.dto.MemberRequestDTO;
 import com.surest.member.app.entity.Member;
 import com.surest.member.app.entity.Role;
 import com.surest.member.app.entity.User;
+import com.surest.member.app.exception.ResourceNotFoundException;
 import com.surest.member.app.repository.MemberRepository;
 import com.surest.member.app.repository.RoleRepository;
 import com.surest.member.app.repository.UserRepository;
@@ -74,8 +75,11 @@ class MemberIntegrationTest {
         memberRepository.deleteAll();
         userRepository.deleteAll();
 
-        Role adminRole = roleRepository.findByRoleName("ADMIN").get();
-        Role userRole = roleRepository.findByRoleName("USER").get();
+        Role adminRole = roleRepository.findByRoleName("ADMIN")
+                .orElseThrow(() -> new ResourceNotFoundException("Role 'ADMIN' not found"));
+
+        Role userRole = roleRepository.findByRoleName("USER")
+                .orElseThrow(() -> new ResourceNotFoundException("Role 'USER' not found"));
 
         // Create Admin User
         User admin = new User();

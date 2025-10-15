@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
+@SuppressWarnings("unused")
 public class SecurityConfig {
 
     public static final String USER = "USER";
