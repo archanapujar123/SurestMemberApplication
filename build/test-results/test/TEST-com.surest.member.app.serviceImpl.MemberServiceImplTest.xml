@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.surest.member.app.serviceImpl.MemberServiceImplTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-10-16T04:36:55.732Z" hostname="ELW5330" time="0.351">
+  <properties/>
+  <testcase name="testUpdateMemberNotFoundThrowsException()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.144"/>
+  <testcase name="testGetAllMembersFilterNoResults()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.029"/>
+  <testcase name="testDeleteMemberSuccess()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.011"/>
+  <testcase name="testUpdateMemberSuccess()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.015"/>
+  <testcase name="testGetAllMembersNoFiltersReturnsPage()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.022"/>
+  <testcase name="testGetAllMembersWithFiltersNoResultsThrowsExceptionTest()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.017"/>
+  <testcase name="testCreateMemberSuccess()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.018"/>
+  <testcase name="testDeleteMemberNotFoundThrowsException()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.016"/>
+  <testcase name="testGetMemberByIdSuccess()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.016"/>
+  <testcase name="testGetMemberByIdNotFoundThrowsException()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.017"/>
+  <testcase name="testCreateMemberEmailAlreadyExistsThrowsException()" classname="com.surest.member.app.serviceImpl.MemberServiceImplTest" time="0.023"/>
+  <system-out><![CDATA[2025-10-16T10:06:56.030+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.app.service.MemberServiceImpl      : Fetching from DB for ID: cf734cbd-a9b2-49d9-a4de-0947170acdda
+2025-10-16T10:06:56.046+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.app.service.MemberServiceImpl      : Fetching from DB for ID: 27c5b84b-6c01-4003-b929-b474e546d110
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

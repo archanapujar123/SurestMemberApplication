@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.surest.member.app.SurestMemberAppApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-16T04:36:40.185Z" hostname="ELW5330" time="2.074">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.surest.member.app.SurestMemberAppApplicationTests" time="2.074"/>
+  <system-out><![CDATA[10:06:20.025 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.surest.member.app.SurestMemberAppApplicationTests]: SurestMemberAppApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:06:20.559 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.surest.member.app.SurestMemberAppApplication for test class com.surest.member.app.SurestMemberAppApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-16T10:06:22.647+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.a.SurestMemberAppApplicationTests  : Starting SurestMemberAppApplicationTests using Java 17.0.16 with PID 20660 (started by EI12872 in C:\Surest\surest_member_app\surest_member_app)
+2025-10-16T10:06:22.647+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.a.SurestMemberAppApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-10-16T10:06:25.895+05:30  INFO 20660 --- [surest_member_app] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-16T10:06:26.165+05:30  INFO 20660 --- [surest_member_app] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 230 ms. Found 3 JPA repository interfaces.
+2025-10-16T10:06:28.218+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-16T10:06:28.522+05:30  INFO 20660 --- [surest_member_app] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-16T10:06:28.658+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-16T10:06:29.663+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-16T10:06:29.804+05:30  INFO 20660 --- [surest_member_app] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-16T10:06:30.386+05:30  INFO 20660 --- [surest_member_app] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@955d24d9
+2025-10-16T10:06:30.386+05:30  INFO 20660 --- [surest_member_app] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-16T10:06:30.794+05:30  INFO 20660 --- [surest_member_app] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-16T10:06:34.549+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-16T10:06:35.192+05:30  INFO 20660 --- [surest_member_app] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-16T10:06:36.387+05:30  WARN 20660 --- [surest_member_app] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-16T10:06:36.557+05:30  INFO 20660 --- [surest_member_app] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-10-16T10:06:38.865+05:30 DEBUG 20660 --- [surest_member_app] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-10-16T10:06:40.122+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.a.SurestMemberAppApplicationTests  : Started SurestMemberAppApplicationTests in 18.841 seconds (process running for 25.029)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

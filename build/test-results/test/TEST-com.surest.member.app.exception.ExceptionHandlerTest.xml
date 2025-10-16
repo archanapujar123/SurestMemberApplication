@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.surest.member.app.exception.ExceptionHandlerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-10-16T04:36:45.373Z" hostname="ELW5330" time="0.659">
+  <properties/>
+  <testcase name="testHandleOtherExceptions()" classname="com.surest.member.app.exception.ExceptionHandlerTest" time="0.266"/>
+  <testcase name="testHandleShouldReturn403AndJsonResponse()" classname="com.surest.member.app.exception.ExceptionHandlerTest" time="0.009"/>
+  <testcase name="testValidationExceptions()" classname="com.surest.member.app.exception.ExceptionHandlerTest" time="0.375"/>
+  <testcase name="testHandleResourceNotFoundException()" classname="com.surest.member.app.exception.ExceptionHandlerTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

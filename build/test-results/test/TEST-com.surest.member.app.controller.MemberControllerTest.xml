@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.surest.member.app.controller.MemberControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-10-16T04:36:44.980Z" hostname="ELW5330" time="0.387">
+  <properties/>
+  <testcase name="testDeleteMemberByIdSuccess()" classname="com.surest.member.app.controller.MemberControllerTest" time="0.31"/>
+  <testcase name="testUpdateMemberSuccess()" classname="com.surest.member.app.controller.MemberControllerTest" time="0.008"/>
+  <testcase name="testGetAllMembersSuccess()" classname="com.surest.member.app.controller.MemberControllerTest" time="0.041"/>
+  <testcase name="testCreateMemberSuccess()" classname="com.surest.member.app.controller.MemberControllerTest" time="0.017"/>
+  <testcase name="testGetMemberByIdSuccess()" classname="com.surest.member.app.controller.MemberControllerTest" time="0.005"/>
+  <system-out><![CDATA[2025-10-16T10:06:45.353+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.app.controller.MemberController    : Received request to create member: MemberRequestDTO(firstName=Archana, lastName=Pujar, email=archanapujar@gmail.com, dateOfBirth=1995-06-07)
+2025-10-16T10:06:45.353+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.app.controller.MemberController    : Successfully created member with ID: 77f13e2d-4b24-4f80-b826-188dd2e4181f
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

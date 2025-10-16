@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - MemberIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>MemberIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.surest.member.app.integration.html">com.surest.member.app.integration</a> &gt; MemberIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">4.390s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testCreateMemberAsAdminShouldReturn201()</td>
+<td class="success">0.886s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCreateMemberAsUserShouldReturn403()</td>
+<td class="success">0.642s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeleteMemberAsAdminShouldReturn200()</td>
+<td class="success">1.635s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetMemberByIdAsAdminShouldReturn200()</td>
+<td class="success">0.614s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetMemberByIdAsUserShouldReturn200()</td>
+<td class="success">0.613s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2025-10-16T10:06:46.060+05:30  INFO 20660 --- [surest_member_app] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.surest.member.app.integration.MemberIntegrationTest]: MemberIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-16T10:06:46.075+05:30  INFO 20660 --- [surest_member_app] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.surest.member.app.SurestMemberAppApplication for test class com.surest.member.app.integration.MemberIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-16T10:06:46.185+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.a.i.MemberIntegrationTest          : Starting MemberIntegrationTest using Java 17.0.16 with PID 20660 (started by EI12872 in C:\Surest\surest_member_app\surest_member_app)
+2025-10-16T10:06:46.185+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.a.i.MemberIntegrationTest          : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-10-16T10:06:46.798+05:30  INFO 20660 --- [surest_member_app] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-16T10:06:46.876+05:30  INFO 20660 --- [surest_member_app] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 3 JPA repository interfaces.
+2025-10-16T10:06:47.645+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-10-16T10:06:47.692+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-16T10:06:47.692+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-16T10:06:47.865+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-16T10:06:47.865+05:30  INFO 20660 --- [surest_member_app] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1680 ms
+2025-10-16T10:06:48.210+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-16T10:06:48.217+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-16T10:06:48.273+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-16T10:06:48.273+05:30  INFO 20660 --- [surest_member_app] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-10-16T10:06:48.399+05:30  INFO 20660 --- [surest_member_app] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@a7fa6c03
+2025-10-16T10:06:48.399+05:30  INFO 20660 --- [surest_member_app] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-10-16T10:06:48.418+05:30  INFO 20660 --- [surest_member_app] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-16T10:06:48.572+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-16T10:06:48.819+05:30  INFO 20660 --- [surest_member_app] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-16T10:06:48.935+05:30  WARN 20660 --- [surest_member_app] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-16T10:06:48.982+05:30  INFO 20660 --- [surest_member_app] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-10-16T10:06:49.468+05:30 DEBUG 20660 --- [surest_member_app] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-10-16T10:06:50.323+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 64074 (http) with context path '/'
+2025-10-16T10:06:50.348+05:30  INFO 20660 --- [surest_member_app] [    Test worker] c.s.m.a.i.MemberIntegrationTest          : Started MemberIntegrationTest in 4.257 seconds (process running for 35.255)
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0
+Hibernate: 
+    delete 
+    from
+        surest.member 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+2025-10-16T10:06:52.263+05:30  INFO 20660 --- [surest_member_app] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-16T10:06:52.263+05:30  INFO 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-16T10:06:52.263+05:30  INFO 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-10-16T10:06:52.295+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:52.310+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:52.310+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:52.577+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+2025-10-16T10:06:52.655+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:52.655+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:52.655+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:52.796+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-2] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    insert 
+    into
+        surest.member
+        (created_at, date_of_birth, email, first_name, last_name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-10-16T10:06:52.831+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-3] o.s.security.web.FilterChainProxy        : Securing DELETE /api/v1/members/45f50c12-b2c5-4ca2-b27f-d938fd5a4c7a
+2025-10-16T10:06:52.843+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-3] o.s.security.web.FilterChainProxy        : Secured DELETE /api/v1/members/45f50c12-b2c5-4ca2-b27f-d938fd5a4c7a
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0 
+    where
+        m1_0.id=?
+Hibernate: 
+    delete 
+    from
+        surest.member 
+    where
+        id=?
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+2025-10-16T10:06:53.252+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:53.252+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:53.252+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:53.377+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+2025-10-16T10:06:53.409+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:53.409+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:53.409+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:53.550+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+2025-10-16T10:06:53.581+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/members
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+2025-10-16T10:06:53.911+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:53.911+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:53.911+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:54.037+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-9] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+2025-10-16T10:06:54.068+05:30 DEBUG 20660 --- [surest_member_app] [-auto-1-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:54.068+05:30 DEBUG 20660 --- [surest_member_app] [-auto-1-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:54.068+05:30 DEBUG 20660 --- [surest_member_app] [-auto-1-exec-10] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:54.209+05:30 DEBUG 20660 --- [surest_member_app] [-auto-1-exec-10] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+2025-10-16T10:06:54.225+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/members
+2025-10-16T10:06:54.235+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/members
+2025-10-16T10:06:54.429+05:30  INFO 20660 --- [surest_member_app] [o-auto-1-exec-7] c.s.m.app.controller.MemberController    : Received request to create member: MemberRequestDTO(firstName=Archana, lastName=Pujar, email=archana@gmail.com, dateOfBirth=2000-01-01)
+Hibernate: 
+    select
+        m1_0.id 
+    from
+        surest.member m1_0 
+    where
+        m1_0.email=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        surest.member
+        (created_at, date_of_birth, email, first_name, last_name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-10-16T10:06:54.445+05:30  INFO 20660 --- [surest_member_app] [o-auto-1-exec-7] c.s.m.app.controller.MemberController    : Successfully created member with ID: 9e52fef7-1d4d-4696-a3f2-8801482c2001
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0
+Hibernate: 
+    delete 
+    from
+        surest.member 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+2025-10-16T10:06:54.761+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:54.761+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:54.761+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-8] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:54.868+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-8] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+2025-10-16T10:06:54.899+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:54.899+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:54.899+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:55.037+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    insert 
+    into
+        surest.member
+        (created_at, date_of_birth, email, first_name, last_name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-10-16T10:06:55.057+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/members/13928d54-9f3a-4cc1-a413-cfa6c4fe22e4
+2025-10-16T10:06:55.057+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/members/13928d54-9f3a-4cc1-a413-cfa6c4fe22e4
+2025-10-16T10:06:55.057+05:30  INFO 20660 --- [surest_member_app] [o-auto-1-exec-2] c.s.m.app.service.MemberServiceImpl      : Fetching from DB for ID: 13928d54-9f3a-4cc1-a413-cfa6c4fe22e4
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0 
+    where
+        m1_0.id=?
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0
+Hibernate: 
+    delete 
+    from
+        surest.member 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        surest.user 
+    where
+        id=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.role_name=?
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        surest.user
+        (password_hash, role_id, username, id) 
+    values
+        (?, ?, ?, ?)
+2025-10-16T10:06:55.386+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:55.386+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:55.386+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:55.511+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+2025-10-16T10:06:55.527+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-10-16T10:06:55.527+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-16T10:06:55.527+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.role_name 
+    from
+        surest.role r1_0 
+    where
+        r1_0.id=?
+2025-10-16T10:06:55.669+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.password_hash,
+        u1_0.role_id,
+        u1_0.username 
+    from
+        surest.user u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    insert 
+    into
+        surest.member
+        (created_at, date_of_birth, email, first_name, last_name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-10-16T10:06:55.700+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/members/0a4189db-33b3-4e6a-8db8-083d3e0d7b17
+2025-10-16T10:06:55.700+05:30 DEBUG 20660 --- [surest_member_app] [o-auto-1-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/members/0a4189db-33b3-4e6a-8db8-083d3e0d7b17
+2025-10-16T10:06:55.700+05:30  INFO 20660 --- [surest_member_app] [o-auto-1-exec-5] c.s.m.app.service.MemberServiceImpl      : Fetching from DB for ID: 0a4189db-33b3-4e6a-8db8-083d3e0d7b17
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.created_at,
+        m1_0.date_of_birth,
+        m1_0.email,
+        m1_0.first_name,
+        m1_0.last_name,
+        m1_0.updated_at 
+    from
+        surest.member m1_0 
+    where
+        m1_0.id=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.3</a> at Oct 16, 2025, 10:06:57 AM</p>
+</div>
+</div>
+</body>
+</html>

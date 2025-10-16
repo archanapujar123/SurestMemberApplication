@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.surest.member.app.controller.AuthControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-10-16T04:36:42.616Z" hostname="ELW5330" time="2.36">
+  <properties/>
+  <testcase name="testLoginSuccess()" classname="com.surest.member.app.controller.AuthControllerTest" time="2.235"/>
+  <testcase name="testLoginInvalidCredentials()" classname="com.surest.member.app.controller.AuthControllerTest" time="0.044"/>
+  <testcase name="testRegisterUsernameAlreadyExists()" classname="com.surest.member.app.controller.AuthControllerTest" time="0.023"/>
+  <testcase name="testRegisterRoleNotFound()" classname="com.surest.member.app.controller.AuthControllerTest" time="0.024"/>
+  <testcase name="testRegisterSuccess()" classname="com.surest.member.app.controller.AuthControllerTest" time="0.03"/>
+  <system-out><![CDATA[2025-10-16T10:06:44.104+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-10-16T10:06:44.104+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-16T10:06:44.104+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-10-16T10:06:44.881+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-10-16T10:06:44.881+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-16T10:06:44.881+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-10-16T10:06:44.912+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-10-16T10:06:44.912+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-16T10:06:44.912+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-10-16T10:06:44.944+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-10-16T10:06:44.944+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-16T10:06:44.944+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-10-16T10:06:44.959+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-10-16T10:06:44.959+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-16T10:06:44.959+05:30  INFO 20660 --- [surest_member_app] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
